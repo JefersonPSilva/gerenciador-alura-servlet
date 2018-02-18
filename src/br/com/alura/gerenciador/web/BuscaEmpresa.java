@@ -18,6 +18,7 @@ public class BuscaEmpresa extends HttpServlet{
 		PrintWriter escrever = resp.getWriter();
 		escrever.println("<html><body>");
 		escrever.println("Resultado da busca:<br/>");
+		
 		escrever.println("</body></html>");
 	}
 }
