@@ -9,6 +9,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.com.alura.gerenciador.Usuario;
 import br.com.alura.gerenciador.dao.UsuarioDAO;
@@ -27,10 +28,10 @@ public class Login extends HttpServlet {
 		if(usuario ==null) {
 			escrever.println("<html><body>Usuário Inválido.</body></html>");
 		} else { 
-			//criação do cookie
-			Cookie cookie = new Cookie("usuario.logado", email);
-			cookie.setMaxAge(10*60);//10min
-			response.addCookie(cookie);
+			//Implementação de session
+			HttpSession session = request.getSession();
+			session.setAttribute("usuario.logado", usuario);
+			
 			escrever.println("<html><body>Usuário logado: "+usuario.getEmail()+"</body></html>");
 		}
 	}
