@@ -41,8 +41,8 @@ public class FiltroDeAuditoria implements Filter{
 	
 	//Metodo para gerar e manter cookie para controle de usuário
 	private String getUsuario(HttpServletRequest req) {
-		
-		
-		return usuario;
+		Cookie cookie = new Cookies(req.getCookies()).buscoUsuarioLogado();
+		if(cookie == null) return "<deslogado>";
+		return cookie.getValue();
 	}
 }
