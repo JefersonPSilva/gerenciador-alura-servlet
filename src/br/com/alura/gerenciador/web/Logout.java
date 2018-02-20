@@ -14,10 +14,16 @@ import javax.servlet.http.HttpServletResponse;
 public class Logout extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Cookie cookie = //...
-		cookie.setMaxAge(0);
-		resp.addCookie(cookie);
+		Cookie cookie = new Cookies(req.getCookies()).buscoUsuarioLogado();
 		PrintWriter escrever = resp.getWriter();
-		escrever.println("Deslogado com sucesso!");
+		if(cookie == null) { 
+			escrever.println("<html><body>Usuario não estava logado!</body></html>");
+			return;
+		}
+		//Encerra tempo usuário e desloga
+		cookie.setMaxAge(0);
+		//Envia como response o tempo do cookie zerado
+		resp.addCookie(cookie);
+		escrever.println("<html><body>Deslogado com sucesso!</body></html>");
 	}
 }
