@@ -1,0 +1,10 @@
+br\com\alura\gerenciador\Usuario.class
+br\com\alura\gerenciador\Empresa.class
+br\com\alura\gerenciador\web\FiltroDeAuditoria.class
+br\com\alura\gerenciador\dao\UsuarioDAO.class
+br\com\alura\gerenciador\web\NovaEmpresa.class
+br\com\alura\gerenciador\web\BuscaEmpresa.class
+br\com\alura\gerenciador\web\Cookies.class
+br\com\alura\gerenciador\dao\EmpresaDAO.class
+br\com\alura\gerenciador\web\Login.class
+br\com\alura\gerenciador\web\Logout.class

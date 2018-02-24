@@ -132,6 +132,12 @@
       <artifactId>tomcat-websocket-api</artifactId>
       <version>8.5.15</version>
     </dependency>
+    <!-- JSTL 1.2 -->
+    <dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>jstl</artifactId>
+	    <version>1.2</version>
+	</dependency>
   </dependencies>
   <build>
     <sourceDirectory>src</sourceDirectory>
