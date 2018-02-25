@@ -25,7 +25,7 @@ public class NovaEmpresa extends HttpServlet {
 		
 		request.setAttribute("empresa", empresa);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INFO/paginas/novaEmpresa.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/paginas/novaEmpresa.jsp");
 		dispatcher.forward(request, response);
 	}
 }
