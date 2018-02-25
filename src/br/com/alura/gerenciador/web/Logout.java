@@ -11,10 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(urlPatterns="/logout")
 public class Logout extends HttpServlet{
+
+	private static final long serialVersionUID = 697426254938121928L;
+
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//métodos para finalizar uma sessão
-		request.getSession().removeAttribute("usuario.logado");
+		request.getSession().removeAttribute("usuarioLogado");
 		//request.getSession().invalidate();
 		//Redireciona o cliente para a página de logout no lado do servidor
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/paginas/logout.html");
