@@ -1,9 +1,9 @@
 package br.com.alura.gerenciador.web;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Collection;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,20 +18,15 @@ public class BuscaEmpresa extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		PrintWriter escrever = resp.getWriter();
-		escrever.println("<html><body>");
-		//escrever.println("Resultado da busca:<br/>");
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String filtro = request.getParameter("filtro");
 		
-		//Filtro = resultado -> Supermecado
-		String filter = "";
-		Collection<Empresa> empresas = new EmpresaDAO().buscaPorSimilaridade(filter);
-		escrever.println("<ul>");
-		for(Empresa empresa : empresas) { 
-			escrever.println("<li>"+empresa.getId()+": "+ empresa.getNome()+"</li>");
-		}
-		escrever.println("</ul>");
+		Collection<Empresa> empresas = new EmpresaDAO().buscaPorSimilaridade(filtro);
 		
-		escrever.println("</body></html>");
+		request.setAttribute("empresas", empresas);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/paginas/buscaEmpresa.jsp");
+		
+		dispatcher.forward(request, response);
+		
 	}
 }
