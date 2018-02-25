@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns="/fazTudo")
-public class FazTudo extends HttpServlet{
+@WebServlet(urlPatterns="/executa")
+public class Controller extends HttpServlet{
 	private static final long serialVersionUID = 6626322586019870362L;
 
 	@Override
