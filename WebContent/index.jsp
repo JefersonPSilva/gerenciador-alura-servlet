@@ -28,7 +28,8 @@
 	</form>
 	<br><br>
 	<!-- form para logout -->
-	<form action="logout" method="POST">
+	<form action="executa" method="POST">
+		<input type="hidden" name="tarefa" value="Logout">
 		<input type="submit" value="Logout">
 	</form>
 </body>
